@@ -1,0 +1,92 @@
+body {
+    font-family: 'Open Sans Condensed', sans-serif;
+    background-color: #34352e;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin: 0; /* Remove margens padrão */
+    overflow: hidden; /* Impede a rolagem vertical */
+}
+
+.button-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #34352e;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.button {
+    flex-grow: 1; /* Faz os botões crescerem igualmente e ocuparem todo o espaço disponível */
+    margin-right: 10px; /* Espaçamento entre os botões (ajuste conforme necessário) */
+    font-family: "Open Sans Condensed", sans-serif; /* Fonte Open Sans Condensed */
+    border-radius: 25px; /* Borda arredondada */
+    border: none; /* Remove a borda padrão dos botões */
+    padding: 10px 20px; /* Espaçamento interno dos botões (ajuste conforme necessário) */
+    cursor: pointer;
+    color: white; /* Cor do texto */
+    background-color: rgb(33 33 33 / 44%); /* Cor de fundo dos botões */
+    transition: background-color 0.3s ease; /* Efeito de transição na mudança de cor */
+}
+
+.button.active {
+    background-color: rgba(135, 135, 135, 100%); /* Cor de fundo quando ativo */
+    color: #34352e; /* Cor do texto quando ativo */
+}
+
+.button:hover {
+    background-color: rgba(135, 135, 135, 30%); /* Cor de fundo dos botões quando hover (branco) */
+}
+
+.canvas-style {
+    display: flex;
+    margin: 0 auto;
+    /* display: none; */
+}
+
+.canvas-container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Ocupa toda a altura da viewport */
+}
+
+.text-info {
+  /* Estilos para as informações de texto */
+  font-size: 18px;
+  color: #b25f5f;
+  text-align: center;
+/*  padding: 20px;*/
+}
+
+/* Estilos para os elementos de ajuda */
+.help-content {
+    display: none; /* Inicialmente oculto */
+    background-color: rgba(255, 255, 255, 0.35); /* Cor de fundo com transparência */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    text-align: left; /* Alinhamento do texto */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 17px;
+}
+
+/* Estilos para os sliders de exemplo */
+.inputNumber {
+    width: 10%;
+    margin: 10px auto;
+}
+
+/* Classe para definir opacidade quando a ajuda está aberta */
+.disabled-button {
+/*    opacity: 0.0;*/
+    transition: opacity 0.5s ease;
+    pointer-events: none; /* Isso impede que o botão seja clicado quando desativado */
+}
