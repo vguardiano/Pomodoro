@@ -9,7 +9,7 @@ export const colorCodes = {
 };
 
 export default {
-    maxTime: 0 * 60 + 10, // Marcador de tempo de um pomodoro em segundos
+    maxTime: 2 * 60 + 0, // Marcador de tempo de um pomodoro em segundos
     totalSegments: 5, // Marcador de meta de ciclos de pomodoros
     currentTime: 0, // Marcador de tempo atual decorrido em segundos
     pauseTime: 0, // Marcador de tempo pausado decorrido em segundos

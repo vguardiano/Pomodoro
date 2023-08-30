@@ -5,41 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro</title>
     
-    <link rel="icon" type="image/png" href="/img/icon.png" width=32px>
+    <!-- Link para o ícone (favicon) -->
+    <link rel="icon" type="image/png" href="/img/icon.png" width="32px">
 
-    <link rel="stylesheet" href="scripts/style.css">
+    <!-- Fonte do Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&display=swap">
     
+    <!-- Folha de estilo CSS personalizada -->
+    <link rel="stylesheet" href="scripts/style.css">
+    
+    <!-- Link para o Bootstrap CSS (se estiver sendo utilizado) -->
+    <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Script para o ícone dinâmico (favicon) -->
     <script type="module" src="scripts/favicon.js"></script>
 </head>
-
 <body>
+    <!-- Elemento de canvas para o favicon (inicialmente oculto) -->
     <canvas id="favIconCanvas" width="32" height="32" style="display: none;"></canvas>
 
+    <!-- Contêiner do canvas principal -->
     <div class="canvas-container">
         <canvas id="circleCanvas" class="canvas-style" width="500" height="500"></canvas>
     </div>
 
+    <!-- Painel de Ajuda -->
     <div id="textInfo" class="help-content">
-        <h2>Ajuda e configurações</h2>
+        <h1>Ajuda e configurações</h1>
+        <hr>
         <p>Você pode personalizar este conteúdo com informações úteis e instruções sobre como usar o aplicativo Pomodoro.</p>
-        <div class="slider-container">
-            <p><label for="fillTimeInput">Tempo do Pomodoro: </label><input type="number" id="fillTimeInput" class="inputNumber" min="1" max="60" value="25" step="1"> minutos.</p>
+        <!-- Formulário de configuração (exemplo) -->
+        <div class="container text-center">
+            <div class="row align-items-start">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="fillTimeInput" min="1" max="60" value="25" step="1">
+                        <label for="fillTimeInput">Pomodoro (min)</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="totalSegmentsInput" min="1" max="50" value="10" step="1">
+                        <label for="totalSegmentsInput">Objetivo</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="totalSegmentsInput" min="1" max="50" value="10" step="1">
+                        <label for="totalSegmentsInput">Objetivo</label>
+                    </div>
+                </div>
+            </div>
 
-            <p><label for="totalSegmentsInput">Números de Pomodos: </label><input type="number" id="totalSegmentsInput" class="inputNumber" min="2" max="40" value="4" step="1"> ciclos.</p>
+            <div class="row align-items-start">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="fillTimeInput" min="1" max="60" value="25" step="1">
+                        <label for="fillTimeInput">Pomodoro</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="totalSegmentsInput" min="1" max="50" value="10" step="1">
+                        <label for="totalSegmentsInput">Objetivo</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do exemplo de formulário de configuração -->
+        <p></p>
+    </div>
+
+    <!-- Modal de Ajuda -->
+    <div class="modal modal-lg fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Ajuda e configurações</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Você pode personalizar este conteúdo com informações úteis e instruções sobre como usar o aplicativo Pomodoro.</p>
+                    <!-- Formulário de configuração no modal (exemplo) -->
+                    <div class="container text-center">
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="fillTimeInput" min="1" max="60" value="25" step="1">
+                                    <label for="fillTimeInput">Pomodoro (min)</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="totalSegmentsInput" min="1" max="50" value="10" step="1">
+                                    <label for="totalSegmentsInput">Objetivo</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fim do exemplo de formulário de configuração no modal -->
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="button-container">
+    <!-- Contêiner de botões -->
+    <div class="button-container position-fixed bottom-0">
         <button id="pauseButton" class="button">Pausar</button>
-        <button id="helpButton" class="button">Ajuda</button>
+        <button id="helpButton" class="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ajuda</button>
         <button id="resetButton" class="button">Reiniciar</button>
     </div>
 
+    <!-- Scripts -->
     <script type="module" src="scripts/main.js"></script>
     <script type="module" src="scripts/canvas.js"></script>
     <script type="module" src="scripts/ui.js"></script>
     <script type="module" src="scripts/timer.js"></script>
-</body>
 
+    <!-- Bootstrap JS (se estiver sendo utilizado) -->
+    <script src="../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

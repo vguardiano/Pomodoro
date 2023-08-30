@@ -19,7 +19,7 @@ let tc = 0;
 let time = 0;
 
 // Calcula a porcentagem de conclusão com base no currentTime e ui.maxTime
-let percentage = (time / ui.maxTime) * 100;
+let percentage = (ui.currentTime / ui.maxTime) * 100;
 
 
 // Obtém o elemento <link> com o atributo 'rel' que contém 'icon' (usado para o favicon)
@@ -36,8 +36,7 @@ onload = function() {
 
 // Função para atualizar o favicon com base no preenchimento do círculo de progresso
 function updateLoader() {
-  time++;
-  percentage = (time / ui.maxTime) * 100;
+  percentage = (ui.currentTime / ui.maxTime) * 100;
 
   // Verifica se o contexto 2D foi obtido com sucesso
   if (ctx) {

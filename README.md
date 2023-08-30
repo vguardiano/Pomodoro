@@ -45,14 +45,5 @@ Contribuições são bem-vindas! Se você deseja contribuir para o projeto, siga
 
 ## Autor
 
-- Nome: Seu Nome
-- GitHub: [Seu Nome de Usuário do GitHub](https://github.com/seu-usuario)
-
-## Licença
-
-Este projeto é licenciado sob a Licença MIT - consulte o arquivo [LICENSE.md](LICENSE.md) para obter detalhes.
-
-## Agradecimentos
-
-Agradecemos à comunidade de desenvolvimento de software por suas contribuições e inspiração para este projeto.
-
+- Nome: Vinícius Guardiano Souza
+- GitHub: [Seu Nome de Usuário do GitHub](https://github.com/vguardiano)
